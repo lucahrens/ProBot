@@ -5,10 +5,15 @@ public class Main {
 	  try {
 		Connection con=DriverManager.getConnection("jdbc:mysql://hackathon.cliosjusorja.us-east-1.rds.amazonaws.com:3306/Questions","Hackathon","Hackathon");
 		  System.out.println("hey");
+		  Array src;
 		  	Statement myStmt = con.createStatement();
-		  //you have to change the 69 because the id has to be differnet every time
-		  	myStmt.execute("INSERT INTO questionsTable " + "VALUES ( '69', 'Test', 'holy hsit')");
-		  	
+		  	String sql = "test";
+		  	//myStmt.execute("INSERT INTO questionsTable " + "VALUES ( '69', 'Test', 'holy hsit')");
+		  	//ResultSet rs = myStmt.executeQuery("SELECT * FROM questionsTable");
+		  	//rs.absolute(2);
+		  	//src = rs.getArray("answers");
+		  	//System.out.println(src.toString());
+		  	//DBTablePrinter.printTable(conn, "employees");
 
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block
