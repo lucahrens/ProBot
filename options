@@ -1,0 +1,84 @@
+static void two (String choice) {
+		try {
+				Robot robot= new Robot();
+				robot.mouseMove(548,291);
+				robot.delay(300);
+				robot.mousePress(InputEvent.BUTTON1_MASK);
+				robot.delay(400);
+				robot.mouseRelease(InputEvent.BUTTON1_MASK);
+				robot.mousePress(InputEvent.BUTTON1_MASK);
+				robot.delay(400);
+				robot.mouseRelease(InputEvent.BUTTON1_MASK);
+				robot.delay(300);
+				robot.mouseMove(375,446);
+				robot.delay(300);
+				robot.mousePress(InputEvent.BUTTON1_MASK);
+				robot.delay(200);
+				robot.mouseRelease(InputEvent.BUTTON1_MASK);
+				robot.delay(200);
+				/*robot.mouseMove(378,400);
+				robot.mousePress(InputEvent.BUTTON1_MASK);
+				robot.delay(200);
+				robot.mouseRelease(InputEvent.BUTTON1_MASK);
+				robot.delay(200);*/
+			}
+			catch (AWTException e) {
+		        e.printStackTrace();}
+		    }	
+		
+	
+		static void three (String choice) {
+			try {
+					Robot robot= new Robot();
+					robot.mouseMove(511,339);
+					robot.delay(300);
+					robot.mousePress(InputEvent.BUTTON1_MASK);
+					robot.delay(400);
+					robot.mouseRelease(InputEvent.BUTTON1_MASK);
+					robot.mousePress(InputEvent.BUTTON1_MASK);
+					robot.delay(400);
+					robot.mouseRelease(InputEvent.BUTTON1_MASK);
+					robot.delay(300);
+					robot.mouseMove(375,446);
+					robot.delay(300);
+					robot.mousePress(InputEvent.BUTTON1_MASK);
+					robot.delay(200);
+					robot.mouseRelease(InputEvent.BUTTON1_MASK);
+					robot.delay(200);
+					/*robot.mouseMove(378,400);
+					robot.mousePress(InputEvent.BUTTON1_MASK);
+					robot.delay(200);
+					robot.mouseRelease(InputEvent.BUTTON1_MASK);
+					robot.delay(200);*/
+				}
+				catch (AWTException e) {
+			        e.printStackTrace();}
+			    }	
+			static void four (String choice) {
+				try {
+						Robot robot= new Robot();
+						robot.mouseMove(495,387);
+						robot.delay(300);
+						robot.mousePress(InputEvent.BUTTON1_MASK);
+						robot.delay(400);
+						robot.mouseRelease(InputEvent.BUTTON1_MASK);
+						robot.mousePress(InputEvent.BUTTON1_MASK);
+						robot.delay(400);
+						robot.mouseRelease(InputEvent.BUTTON1_MASK);
+						robot.delay(300);
+						robot.mouseMove(375,446);
+						robot.delay(300);
+						robot.mousePress(InputEvent.BUTTON1_MASK);
+						robot.delay(200);
+						robot.mouseRelease(InputEvent.BUTTON1_MASK);
+						robot.delay(200);
+						/*robot.mouseMove(378,400);
+						robot.mousePress(InputEvent.BUTTON1_MASK);
+						robot.delay(200);
+						robot.mouseRelease(InputEvent.BUTTON1_MASK);
+						robot.delay(200);*/
+					}
+					catch (AWTException e) {
+				        e.printStackTrace();
+				    }	
+		
