@@ -1,3 +1,5 @@
+
+
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -8,19 +10,38 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
+import java.sql.*;
+import java.util.*;
 
 public class Main {
+
 	@SuppressWarnings("deprecation")
-	public static void main(String[] args) throws UnsupportedFlavorException, IOException {
-		
+	public static void main(String[] args) throws UnsupportedFlavorException, IOException, SQLException {
+		char w = 'W';
+		char zero = '0';
+		char one = '1';
+		char two = '2';
+		char three = '3';
+		char four = '4';
+		char five = '5';
+		char six = '6';
+		char seven = '7';
+		char eight = '8';
+		char nine = '9';
+		char[] number1 = new char[1];
+		char[] number2 = new char[2];
+		char[] number3 = new char[3];
+		char[] questionArray = new char[21];
+		int numberOfDigits = 0;
 		try {
-			Robot robot= new Robot();
-			String choice=" ";
+			Robot robot = new Robot();
+			String question=" ";
 			Scanner inputer= new Scanner(System.in);
-			robot.mouseMove(1188,82);
+			robot.mouseMove(175,82);
 			robot.mousePress(InputEvent.BUTTON1_MASK);
 			robot.delay(200);
 			robot.mouseRelease(InputEvent.BUTTON1_MASK);
+			//type("This is a test of the Java Robot class");
 				robot.keyPress(KeyEvent.VK_H);
 				robot.keyRelease(KeyEvent.VK_H);
 				robot.delay(200);
@@ -36,11 +57,11 @@ public class Main {
 				robot.keyPress(KeyEvent.VK_S);
 				robot.keyRelease(KeyEvent.VK_S);
 				robot.delay(200);
-				robot.keyPress(KeyEvent.VK_SHIFT);
 				robot.keyPress(KeyEvent.VK_SEMICOLON);
-				robot.keyRelease(KeyEvent.VK_SHIFT);
 				robot.keyRelease(KeyEvent.VK_SEMICOLON);
 				robot.delay(200);
+				robot.keyPress(KeyEvent.VK_SLASH);
+				robot.keyRelease(KeyEvent.VK_SLASH);
 				robot.keyPress(KeyEvent.VK_SLASH);
 				robot.keyRelease(KeyEvent.VK_SLASH);
 				robot.delay(200);
@@ -159,12 +180,12 @@ public class Main {
 				robot.keyRelease(KeyEvent.VK_P);
 				robot.delay(200);
 				robot.keyPress(KeyEvent.VK_SHIFT);
-				robot.delay(500);
+				robot.delay(700);
 				robot.keyPress(KeyEvent.VK_SLASH);
-				robot.delay(500);
+		
 				robot.keyRelease(KeyEvent.VK_SHIFT);
-				robot.delay(500);
-				robot.keyRelease(KeyEvent.VK_SHIFT);
+				robot.delay(700);
+				robot.keyRelease(KeyEvent.VK_SLASH);
 				robot.delay(200);
 				robot.keyPress(KeyEvent.VK_T);
 				robot.keyRelease(KeyEvent.VK_T);
@@ -230,7 +251,7 @@ public class Main {
 				robot.keyRelease(KeyEvent.VK_ENTER);
 				robot.delay(500);
 				robot.mouseRelease(InputEvent.BUTTON1_MASK);
-				robot.mouseMove(280,548);
+				robot.mouseMove(272,545);
 				robot.delay(300);
 				robot.mousePress(InputEvent.BUTTON1_MASK);
 				robot.mouseRelease(InputEvent.BUTTON1_MASK);
@@ -263,7 +284,7 @@ public class Main {
 				robot.keyRelease(KeyEvent.VK_N);
 				robot.delay(200);
 				//robot.mouseRelease(InputEvent.BUTTON1_MASK);
-				robot.mouseMove(482,546);
+				robot.mouseMove(420, 550);
 				robot.mousePress(InputEvent.BUTTON1_MASK);
 				robot.keyPress(KeyEvent.VK_S);
 				robot.keyRelease(KeyEvent.VK_S);
@@ -281,86 +302,81 @@ public class Main {
 				robot.keyRelease(KeyEvent.VK_Y);
 				robot.delay(200);
 				robot.mouseRelease(InputEvent.BUTTON1_MASK);
-				robot.mouseMove(280,604);
+				robot.mouseMove(307,611);
 				robot.mousePress(InputEvent.BUTTON1_MASK);
 				robot.mouseRelease(InputEvent.BUTTON1_MASK);
 				robot.delay(1000);
-				robot.mouseMove(299,201);
+				robot.mouseMove(253,199);
 				robot.mousePress(InputEvent.BUTTON1_MASK);
-				robot.mouseMove(600,201);
-				robot.delay(500);
+				robot.mouseMove(538,200);
 				robot.keyPress(KeyEvent.VK_META);
-				robot.delay(500);
+				robot.delay(200);
 				robot.keyPress(KeyEvent.VK_C);
-				robot.delay(500);
+				robot.delay(200);
 				robot.keyRelease(KeyEvent.VK_META);
-				robot.delay(500);
+				robot.delay(200);
 				robot.keyRelease(KeyEvent.VK_C);
-				robot.delay(500);
+				robot.delay(200);
 				robot.mouseRelease(InputEvent.BUTTON1_MASK);
-				//robot.mouseMove(-1208,880);
-				//robot.mousePress(InputEvent.BUTTON1_MASK);
-				//robot.mouseRelease(InputEvent.BUTTON1_MASK);
-				//robot.delay(500);
-				
-				//question=inputer.nextLine();
-				/*
-				robot.keyPress(KeyEvent.VK_META);
-				robot.delay(500);
-				robot.keyPress(KeyEvent.VK_V);
-				robot.delay(500);
-				robot.keyRelease(KeyEvent.VK_CONTROL);
-				robot.delay(500);
-				robot.keyRelease(KeyEvent.VK_V);
-				robot.delay(500);
-				*/
 				Toolkit toolkit = Toolkit.getDefaultToolkit();
 				Clipboard clipboard = toolkit.getSystemClipboard();
-				String result1 = (String) clipboard.getData(DataFlavor.stringFlavor);
-				System.out.println("String from Clipboard:" + result1);
-				System.out.println("What question do you want?");
-				choice=inputer.nextLine();
-				if (choice.contentEquals("one")){
-					one(choice);
-				}
-				String question = correct();
-				System.out.println(question);
-				String[] words = question.split("\\W+");
+				String result = (String) clipboard.getData(DataFlavor.stringFlavor);
+				char[] fullQuestionArray = result.toCharArray();
+				one("one");
+				String options = correct();
+				String correctAnswer = "";
+				String[] words = options.split("\\W+");
 				System.out.println(Arrays.toString(words));
-				String toString= question.toString();
-				//System.out.println(toString);
 				for(int i=0;i<words.length;i++) {
 					 if(words[i].equals("Correct")){
-						 System.out.println(words[i-1].toString());
+						 correctAnswer = words[i-1].toString();
 					 } else if (words[i].equals("Your")){
-						 System.out.println(words[i-1].toString());
+						 correctAnswer = words[i-1].toString();
 					 }
 				}
-				
-				
-		}
+				for (int i = 0; i < fullQuestionArray.length; i++) {
+					if ((fullQuestionArray[i] == zero || fullQuestionArray[i] == one || fullQuestionArray[i] == two || fullQuestionArray[i] == three || fullQuestionArray[i] == four || fullQuestionArray[i] == five || fullQuestionArray[i] == six || fullQuestionArray[i] == seven || fullQuestionArray[i] == eight || fullQuestionArray[i] == nine) && (fullQuestionArray[i+1] == w)) {
+						if (i == 0) {
+							number1 = Arrays.copyOfRange(fullQuestionArray, 0, 1);  
+							questionArray = Arrays.copyOfRange(fullQuestionArray, 1, 23);  
+							numberOfDigits = 1;
+						} else if (i == 1) {
+							number2 = Arrays.copyOfRange(fullQuestionArray, 0, 2);
+							questionArray = Arrays.copyOfRange(fullQuestionArray, 2, 24);  
+							numberOfDigits = 2;
+						} else {
+							number3 = Arrays.copyOfRange(fullQuestionArray, 0, 3);
+							questionArray = Arrays.copyOfRange(fullQuestionArray, 3, 25);  
+							numberOfDigits = 3;
+						}
+					}
+				}
+				Connection con=DriverManager.getConnection("jdbc:mysql://hackathon.cliosjusorja.us-east-1.rds.amazonaws.com:3306/Questions","Hackathon","Hackathon");
+				Statement myStmt = con.createStatement();
+				if (numberOfDigits == 1) {
+					String b = new String(number1);
+					int i = Integer.parseInt(b);
+
+					myStmt.execute("INSERT INTO questionsTable " + "VALUES ( '" + i +"', '" + result + "', '"+ correctAnswer +"')");
+				} else if (numberOfDigits == 2) {
+					String b = new String(number2);
+					int i = Integer.parseInt(b);
+
+					myStmt.execute("INSERT INTO questionsTable " + "VALUES ( '" + i +"', '" + result + "', '"+correctAnswer+"')");
+
+				} else {
+					String b = new String(number3);
+					int i = Integer.parseInt(b);
+
+					myStmt.execute("INSERT INTO questionsTable " + "VALUES ( '" + i +"', '" + result + "', '"+correctAnswer+"')");
+
+				}
+		 }
 		 catch (AWTException e) {
 	            e.printStackTrace();
-	        }
-			}
-			//for (int i=0;i<10;i++) {
-				//System.out.print("Enter a choice: ");
-				//choice=inputer.nextLine();
-				/*robot.delay(5000);
-				robot.mouseMove(907,237);
-				robot.mousePress(InputEvent.BUTTON1_MASK);
-				robot.delay(200);
-				robot.mouseRelease(InputEvent.BUTTON1_MASK);
-				robot.delay(200);
-				robot.mouseMove(966,438);
-				robot.mousePress(InputEvent.BUTTON1_MASK);
-				robot.delay(200);
-				robot.mouseRelease(InputEvent.BUTTON1_MASK);
-				robot.delay(200);*/
-			//}
-			
-	
-	//}
+	     }
+		
+	}
 	@SuppressWarnings("deprecation")
 	static void one (String choice) {
 		try {
@@ -389,21 +405,15 @@ public class Main {
 		catch (AWTException e) {
 	        e.printStackTrace();
 	    }
-		
-	
-		
-		
-		
-		
-		
 	}
+	
 	static String correct() throws UnsupportedFlavorException, IOException {
 		try {
 			@SuppressWarnings("unused")
 			Robot robot= new Robot();
-			robot.mouseMove(289,251);
+			robot.mouseMove(228,259);
 			robot.mousePress(InputEvent.BUTTON1_MASK);
-			robot.mouseMove(298,259);
+			robot.mouseMove(255,265);
 			robot.mouseRelease(InputEvent.BUTTON1_MASK);
 			robot.keyPress(KeyEvent.VK_META);
 			robot.delay(500);
@@ -428,9 +438,7 @@ public class Main {
 		
 	}
 	
+	
+	
+	
 }
-
-	
-	
-	
-
