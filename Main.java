@@ -1,5 +1,3 @@
-
-
 import java.awt.AWTException;
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
@@ -11,11 +9,11 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.sql.*;
-import java.util.*;
+
 
 public class Main {
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings({ "deprecation", "unused" })
 	public static void main(String[] args) throws UnsupportedFlavorException, IOException, SQLException {
 		while (true) {
 		char w = 'W';
@@ -38,13 +36,14 @@ public class Main {
 		String options = "";
 		try {
 			Robot robot = new Robot();
+			@SuppressWarnings("unused")
 			String question=" ";
+			@SuppressWarnings("resource")
 			Scanner inputer= new Scanner(System.in);
 			robot.mouseMove(175,82);
 			robot.mousePress(InputEvent.BUTTON1_MASK);
 			robot.delay(200);
 			robot.mouseRelease(InputEvent.BUTTON1_MASK);
-			//type("This is a test of the Java Robot class");
 				robot.keyPress(KeyEvent.VK_H);
 				robot.keyRelease(KeyEvent.VK_H);
 				robot.delay(200);
@@ -185,7 +184,6 @@ public class Main {
 				robot.keyPress(KeyEvent.VK_SHIFT);
 				robot.delay(700);
 				robot.keyPress(KeyEvent.VK_SLASH);
-		
 				robot.keyRelease(KeyEvent.VK_SHIFT);
 				robot.delay(700);
 				robot.keyRelease(KeyEvent.VK_SLASH);
@@ -286,7 +284,6 @@ public class Main {
 				robot.keyPress(KeyEvent.VK_N);
 				robot.keyRelease(KeyEvent.VK_N);
 				robot.delay(200);
-				//robot.mouseRelease(InputEvent.BUTTON1_MASK);
 				robot.mouseMove(420, 550);
 				robot.mousePress(InputEvent.BUTTON1_MASK);
 				robot.keyPress(KeyEvent.VK_S);
@@ -537,17 +534,14 @@ public class Main {
 			robot.delay(200);
 			robot.mouseRelease(InputEvent.BUTTON1_MASK);
 			robot.delay(200);
-			/*robot.mouseMove(378,400);
-			robot.mousePress(InputEvent.BUTTON1_MASK);
-			robot.delay(200);
-			robot.mouseRelease(InputEvent.BUTTON1_MASK);
-			robot.delay(200);*/
+			
 		}
 		catch (AWTException e) {
 	        e.printStackTrace();
 	    }
 	}
 	
+	@SuppressWarnings("deprecation")
 	static String correct() throws UnsupportedFlavorException, IOException {
 		try {
 			@SuppressWarnings("unused")
@@ -565,7 +559,7 @@ public class Main {
 			robot.keyRelease(KeyEvent.VK_C);
 			robot.delay(500);
 			
-			//System.out.println("String from Clipboard:" + result);
+			
 			
 			
 		}
@@ -579,6 +573,7 @@ public class Main {
 		
 	}
 	
+	@SuppressWarnings("deprecation")
 	static void two () {
 		try {
 				Robot robot= new Robot();
@@ -597,17 +592,14 @@ public class Main {
 				robot.delay(200);
 				robot.mouseRelease(InputEvent.BUTTON1_MASK);
 				robot.delay(200);
-				/*robot.mouseMove(378,400);
-				robot.mousePress(InputEvent.BUTTON1_MASK);
-				robot.delay(200);
-				robot.mouseRelease(InputEvent.BUTTON1_MASK);
-				robot.delay(200);*/
+				
 			}
 			catch (AWTException e) {
 		        e.printStackTrace();}
 		    }	
 		
 	
+		@SuppressWarnings("deprecation")
 		static void three () {
 			try {
 					Robot robot= new Robot();
@@ -626,15 +618,12 @@ public class Main {
 					robot.delay(200);
 					robot.mouseRelease(InputEvent.BUTTON1_MASK);
 					robot.delay(200);
-					/*robot.mouseMove(378,400);
-					robot.mousePress(InputEvent.BUTTON1_MASK);
-					robot.delay(200);
-					robot.mouseRelease(InputEvent.BUTTON1_MASK);
-					robot.delay(200);*/
+					
 				}
 				catch (AWTException e) {
 			        e.printStackTrace();}
 			    }	
+			@SuppressWarnings("deprecation")
 			static void four () {
 				try {
 						Robot robot= new Robot();
@@ -653,18 +642,10 @@ public class Main {
 						robot.delay(200);
 						robot.mouseRelease(InputEvent.BUTTON1_MASK);
 						robot.delay(200);
-						/*robot.mouseMove(378,400);
-						robot.mousePress(InputEvent.BUTTON1_MASK);
-						robot.delay(200);
-						robot.mouseRelease(InputEvent.BUTTON1_MASK);
-						robot.delay(200);*/
+
 					}
 					catch (AWTException e) {
 				        e.printStackTrace();
 				    }
 			}
-	
-	
-	
-	
 }
